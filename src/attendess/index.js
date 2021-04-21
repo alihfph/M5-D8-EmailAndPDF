@@ -88,7 +88,7 @@ const router = express.Router();
 router.get("/exportPDF", async (req, res, next) => {
   try {
     await generatePdf({});
-    res.send("PDF Generated");
+    res.send("PDF Generated yeaah");
   } catch (error) {
     next(error);
   }

@@ -2,14 +2,15 @@ import fs from "fs-extra";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
-const { readJSON, writeJSON, writeFile, createReadStream } = fs;
+const { readJSON, writeJSON, writeFile, createReadStream,  } = fs;
 
 const dataFolderPath = join(dirname(fileURLToPath(import.meta.url)), "../data");
 const studentsFolderPath = join(
   dirname(fileURLToPath(import.meta.url)),
   "../../public/img/students"
 );
-
+export const getpdf = async () =>
+  await fs.readFile(join(dataFolderPath, "example.pdf"));
 export const getStudents = async () =>
   await readJSON(join(dataFolderPath, "students.json"));
 export const writeStudents = async (content) =>
